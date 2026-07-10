@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="パタパタダンジョン">
+<meta name="theme-color" content="#241640">
+<title>パタパタダンジョン ⛳</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<canvas id="game"></canvas>
+
+<!-- ===== HUD (プレイ中) ===== -->
+<div id="hud" class="hidden">
+  <div class="hud-top">
+    <button id="btn-home" class="icon-btn" aria-label="ホームへ">🏠</button>
+    <div class="hud-center">
+      <div id="hud-stars" class="pill stars-pill">
+        <span class="hud-star" data-i="0">★</span><span class="hud-star" data-i="1">★</span><span class="hud-star" data-i="2">★</span>
+      </div>
+    </div>
+    <div class="hud-right">
+      <div class="pill strokes-pill">⛳<b id="stroke-num">0</b></div>
+      <button id="btn-retry" class="icon-btn" aria-label="やりなおす">↺</button>
+    </div>
+  </div>
+  <div id="level-toast" class="hidden"></div>
+  <div id="hint" class="hidden">
+    <div class="hint-hand">👆</div>
+    <div class="hint-text">ひっぱって ぱっ！</div>
+  </div>
+</div>
+
+<!-- ===== タイトル画面 ===== -->
+<div id="title-screen" class="screen">
+  <div class="title-inner">
+    <div class="logo-wrap">
+      <div class="logo-line1">パタパタ</div>
+      <div class="logo-line2">ダンジョン</div>
+      <div class="logo-sub">⛳ ちいさな ぼうけんゴルフ ⛳</div>
+    </div>
+    <div class="title-ball">
+      <svg viewBox="0 0 120 120" width="130" height="130" aria-hidden="true">
+        <ellipse cx="60" cy="112" rx="34" ry="8" fill="rgba(20,10,40,.35)"/>
+        <circle cx="60" cy="62" r="44" fill="#fff8ee"/>
+        <circle cx="60" cy="62" r="44" fill="url(#ballshade)"/>
+        <circle cx="45" cy="46" r="10" fill="#ffffff" opacity=".85"/>
+        <circle cx="48" cy="64" r="5.4" fill="#3a2f45"/>
+        <circle cx="74" cy="64" r="5.4" fill="#3a2f45"/>
+        <circle cx="49.6" cy="62.2" r="1.8" fill="#fff"/>
+        <circle cx="75.6" cy="62.2" r="1.8" fill="#fff"/>
+        <circle cx="40" cy="74" r="5.5" fill="#f7b1a9" opacity=".8"/>
+        <circle cx="82" cy="74" r="5.5" fill="#f7b1a9" opacity=".8"/>
+        <path d="M55 77 Q61 83 67 77" stroke="#3a2f45" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+        <defs>
+          <radialGradient id="ballshade" cx=".38" cy=".32" r="1">
+            <stop offset="0" stop-color="#ffffff" stop-opacity=".9"/>
+            <stop offset=".55" stop-color="#ffffff" stop-opacity="0"/>
+            <stop offset="1" stop-color="#c9a37e" stop-opacity=".55"/>
+          </radialGradient>
+        </defs>
+      </svg>
+    </div>
+    <button id="btn-play" class="big-btn">▶ あそぶ</button>
+    <div class="title-foot">
+      <button id="btn-sound-title" class="icon-btn small" aria-label="おと">🔊</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== レベルせんたく ===== -->
+<div id="level-select" class="screen hidden">
+  <div class="select-header">
+    <button id="btn-select-home" class="icon-btn" aria-label="タイトルへ">🏠</button>
+    <div class="select-title">どこで あそぶ？</div>
+    <button id="btn-sound-select" class="icon-btn" aria-label="おと">🔊</button>
+  </div>
+  <div id="level-grid"></div>
+</div>
+
+<!-- ===== クリア画面 ===== -->
+<div id="win-overlay" class="screen hidden">
+  <div class="win-card">
+    <div class="win-title">やったー！</div>
+    <div class="win-stars">
+      <span class="win-star" data-i="0">★</span><span class="win-star" data-i="1">★</span><span class="win-star" data-i="2">★</span>
+    </div>
+    <div class="win-strokes"></div>
+    <div class="win-buttons">
+      <button id="btn-win-retry" class="round-btn" aria-label="もういちど">↺</button>
+      <button id="btn-win-next" class="round-btn primary" aria-label="つぎへ">▶</button>
+      <button id="btn-win-home" class="round-btn" aria-label="レベルせんたく">▦</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/audio.js"></script>
+<script src="js/levels.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/game.js"></script>
+<script src="js/render.js"></script>
+<script src="js/input.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
