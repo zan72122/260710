@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="コロコロスター">
+<meta name="theme-color" content="#7ec8ff">
+<title>コロコロスターゴルフ</title>
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<canvas id="game"></canvas>
+
+<!-- ===== play HUD ===== -->
+<div id="hud" class="screen hidden">
+  <div class="hud-row hud-top">
+    <div class="hud-left">
+      <button class="round-btn" id="btn-home" aria-label="ホーム">🏠</button>
+      <button class="round-btn" id="btn-retry" aria-label="もういちど">🔄</button>
+    </div>
+    <div class="hud-center">
+      <div id="hud-level" class="hud-badge">レベル 1</div>
+      <div id="hud-enemies" class="hud-enemies"></div>
+    </div>
+    <div class="hud-right">
+      <button class="round-btn" id="btn-sound" aria-label="おと">🔊</button>
+    </div>
+  </div>
+  <div id="hint" class="hint hidden">
+    <span class="hint-hand">👆</span>
+    <span class="hint-text">ゆびで ひっぱって、ぱっと はなしてね！</span>
+  </div>
+</div>
+
+<!-- ===== title screen ===== -->
+<div id="title-screen" class="screen">
+  <div class="title-inner">
+    <div id="logo" aria-label="コロコロスターゴルフ">
+      <div class="logo-line1">
+        <span>コ</span><span>ロ</span><span>コ</span><span>ロ</span><span class="logo-star">★</span>
+      </div>
+      <div class="logo-line2">
+        <span>ス</span><span>タ</span><span>ー</span><span>ゴ</span><span>ル</span><span>フ</span>
+      </div>
+    </div>
+    <div class="title-char-wrap">
+      <svg id="title-char" viewBox="0 0 120 120" aria-label="ぷにまる">
+        <ellipse cx="60" cy="112" rx="34" ry="7" fill="rgba(0,0,0,.15)"/>
+        <ellipse cx="42" cy="102" rx="15" ry="9" fill="#e2517d"/>
+        <ellipse cx="78" cy="102" rx="15" ry="9" fill="#e2517d"/>
+        <circle cx="60" cy="62" r="44" fill="#ff9ecf"/>
+        <path d="M22 50 A44 44 0 0 1 92 30" fill="none" stroke="#ffc7e3" stroke-width="9" stroke-linecap="round"/>
+        <ellipse cx="46" cy="56" rx="6" ry="10" fill="#31344b"/>
+        <ellipse cx="74" cy="56" rx="6" ry="10" fill="#31344b"/>
+        <ellipse cx="44.2" cy="52.5" rx="2.4" ry="3.6" fill="#fff"/>
+        <ellipse cx="72.2" cy="52.5" rx="2.4" ry="3.6" fill="#fff"/>
+        <ellipse cx="34" cy="70" rx="7" ry="4.5" fill="#ff6fa5"/>
+        <ellipse cx="86" cy="70" rx="7" ry="4.5" fill="#ff6fa5"/>
+        <path d="M52 74 Q60 82 68 74" fill="none" stroke="#31344b" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <button id="btn-start" class="big-btn">▶ はじめる</button>
+    <div class="title-sub">タップして あそんでね</div>
+  </div>
+</div>
+
+<!-- ===== map (level select) screen ===== -->
+<div id="map-screen" class="screen hidden">
+  <div class="map-inner">
+    <div class="map-head">
+      <button class="round-btn" id="btn-map-title" aria-label="タイトルへ">🏠</button>
+      <h1 class="map-title">どこで あそぶ？</h1>
+      <button class="round-btn" id="btn-map-sound" aria-label="おと">🔊</button>
+    </div>
+    <div id="map-worlds"></div>
+  </div>
+</div>
+
+<!-- ===== level clear screen ===== -->
+<div id="clear-screen" class="screen hidden">
+  <div class="clear-card">
+    <div id="clear-title" class="clear-title">クリア！</div>
+    <div id="clear-stars" class="clear-stars">
+      <span class="clear-star">★</span><span class="clear-star">★</span><span class="clear-star">★</span>
+    </div>
+    <div id="clear-msg" class="clear-msg">やったね！</div>
+    <div class="clear-btns">
+      <button id="btn-again" class="mid-btn">🔄<small>もういちど</small></button>
+      <button id="btn-next" class="mid-btn primary">➡️<small>つぎへ</small></button>
+    </div>
+    <button id="btn-clear-map" class="mid-btn ghost">🗺️<small>マップ</small></button>
+  </div>
+</div>
+
+<script src="js/util.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/levels.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/render.js"></script>
+<script src="js/game.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
