@@ -1,0 +1,13 @@
+{
+  "name": "コロコロスターゴルフ",
+  "short_name": "コロコロスター",
+  "description": "4さいから あそべる、ころがして ポン！の ミニゴルフゲーム",
+  "start_url": ".",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#7ec8ff",
+  "theme_color": "#7ec8ff",
+  "icons": [
+    { "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
