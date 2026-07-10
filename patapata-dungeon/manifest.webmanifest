@@ -1,0 +1,14 @@
+{
+  "name": "パタパタダンジョン",
+  "short_name": "パタダン",
+  "description": "4さいから あそべる、ひっぱって うつ ダンジョンゴルフ",
+  "start_url": ".",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#1c1038",
+  "theme_color": "#241640",
+  "icons": [
+    { "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
