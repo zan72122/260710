@@ -1,0 +1,14 @@
+{
+  "name": "コズミックキャンディゴルフ",
+  "short_name": "キャンディゴルフ",
+  "description": "4さいから あそべる おもちゃのくにの 3Dゴルフ",
+  "start_url": "./index.html",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#7ec8ff",
+  "theme_color": "#7ec8ff",
+  "icons": [
+    { "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any" }
+  ]
+}

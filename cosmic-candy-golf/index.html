@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>コズミックキャンディゴルフ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="キャンディゴルフ">
+<meta name="theme-color" content="#7ec8ff">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="gameCanvas"></canvas>
+
+<!-- ===== HUD (in game) ===== -->
+<div id="hud" class="screen hidden">
+  <button id="btnHome" class="iconBtn cornerTL" aria-label="home">🏠</button>
+  <button id="btnMute2" class="iconBtn cornerTR" aria-label="sound">🔊</button>
+  <div id="shotDots" class="shotDots"></div>
+  <div id="targetCount" class="targetCount"></div>
+  <div id="abilityBubble" class="abilityBubble hidden">
+    <span id="abilityIcon">🚀</span>
+    <svg viewBox="0 0 44 44" class="ring"><circle id="abilityRing" cx="22" cy="22" r="19"></circle></svg>
+  </div>
+  <div id="comboRow" class="comboRow"></div>
+  <div id="hintHand" class="hintHand hidden">👆</div>
+  <div id="bigSplash" class="bigSplash hidden"></div>
+</div>
+
+<!-- ===== Title ===== -->
+<div id="title" class="screen">
+  <div class="titleArt">
+    <div class="titleBall">⛳</div>
+    <div class="titleLogo">
+      <span class="tW">コズミック</span>
+      <span class="tW t2">キャンディ</span>
+      <span class="tW t3">ゴルフ</span>
+    </div>
+    <div class="titleStars">✨🌈✨</div>
+  </div>
+  <button id="btnPlay" class="bigBtn playBtn" aria-label="play">▶</button>
+  <div class="titleRow">
+    <button id="btnCloset" class="iconBtn" aria-label="skins">🎨</button>
+    <button id="btnMute" class="iconBtn" aria-label="sound">🔊</button>
+  </div>
+  <div id="titleTotalStars" class="totalStars">⭐ 0</div>
+</div>
+
+<!-- ===== Stage Select ===== -->
+<div id="stageSelect" class="screen hidden">
+  <button class="iconBtn cornerTL backBtn" aria-label="back">↩️</button>
+  <div class="selGrid" id="selGrid"></div>
+</div>
+
+<!-- ===== Skin Closet ===== -->
+<div id="closet" class="screen hidden">
+  <button class="iconBtn cornerTL backBtn" aria-label="back">↩️</button>
+  <div id="closetStars" class="totalStars">⭐ 0</div>
+  <div class="skinGrid" id="skinGrid"></div>
+</div>
+
+<!-- ===== Stage Clear ===== -->
+<div id="clear" class="screen hidden">
+  <div class="clearCard">
+    <div id="clearStars" class="clearStars"><span>⭐</span><span>⭐</span><span>⭐</span></div>
+    <div id="clearEmoji" class="clearEmoji">🎉</div>
+    <div class="clearRow">
+      <button id="btnReplay" class="iconBtn" aria-label="replay">🔁</button>
+      <button id="btnNext" class="bigBtn" aria-label="next">▶</button>
+      <button id="btnClearHome" class="iconBtn" aria-label="home">🏠</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Endless island transition ===== -->
+<div id="islandBanner" class="islandBanner hidden">🚀</div>
+
+<script src="vendor/babylon.min.js"></script>
+<script src="js/util.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/levels.js"></script>
+<script src="js/game.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
